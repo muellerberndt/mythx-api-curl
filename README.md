@@ -14,6 +14,7 @@ Once that's done you can:
 * Submit a contract for analysis, creating a job run with a UUID
 * See the status of job using the UUID of a previously submitted analysis
 * Get the results of a previously finished analysis using the UUID
+* Get the API version number
 
 To submit a job for use `analysis.sh` for analysis:
 ---------------------------------------------------------------
