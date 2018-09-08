@@ -1,5 +1,7 @@
+ # Get issues from a finished analysis
+
 #!/bin/bash
-# Get the state of a prior run
+# Run an analysis
 
 cd $(dirname ${BASH_SOURCE[0]})
 
@@ -14,11 +16,8 @@ if [[ -z $UUID ]] ; then
     exit 1
 fi
 
-prefix="GET https://api.mythril.ai/mythril/v1/analysis/$UUID"
-echo "Issuing HTTP $prefix
-  (with MYTHRIL_API_KEY)"
-
-curl -i -X $prefix \
+curl -X GET \
+  https://api.mythril.ai/v1/analyses/${UUID}/issues \
   -H "Authorization: Bearer $MYTHRIL_API_KEY"  >$stdout 2>$stderr
 rc=$?
 process_outputs $rc

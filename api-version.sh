@@ -5,10 +5,10 @@ cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh
 
-prefix="GET https://api.mythril.ai/mythril/v1/version"
+prefix="GET https://api.mythril.ai/v1/version"
 echo "Issuing HTTP $prefix"
 
 curl -i -X $prefix >$stdout 2>$stderr
 rc=$?
-process_outputs $rc 0
+process_outputs $rc 1
 exit $rc

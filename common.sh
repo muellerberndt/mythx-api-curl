@@ -17,7 +17,7 @@ process_outputs() {
 	if [[ -s $stdout ]] ; then
 	    cat $stdout | grep "^HTTP"
 	    if (( use_jq )) ; then
-		if ! grep '^{' $stdout | jq 2>/dev/null ; then
+		if ! grep '^[{[]' $stdout | jq 2>/dev/null ; then
 		    echo -----------------------------------
 		    cat $stdout
 		    echo
