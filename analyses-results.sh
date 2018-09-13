@@ -1,8 +1,9 @@
+#!/bin/bash
  # Get issues from a finished analysis
 
-#!/bin/bash
-# Run an analysis
-
+HELP="usage: $0 UUID
+  Get issues from a finished /analysis POST
+"
 cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh

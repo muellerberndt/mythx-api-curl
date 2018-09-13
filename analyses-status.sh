@@ -1,6 +1,9 @@
 #!/bin/bash
-# Get the state of a prior run
+# Get the status of a prior run
 
+HELP="usage: $0 UUID
+  Get the status of a prior '/analyses' POST
+"
 cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh

@@ -14,7 +14,9 @@ Once that's done you can:
 * Submit a contract for analysis, creating a job run with a UUID
 * See the status of job using the UUID of a previously submitted analysis
 * Get the results of a previously finished analysis using the UUID
-* Get the API version number
+* See a list of previously submitted analyses
+* Get the current versions of Mythril API and its core sub-modules
+* Get the OpenAPI specification
 
 To submit a job for use `analyses.sh` for analysis:
 ---------------------------------------------------------------
@@ -85,4 +87,19 @@ Issuing HTTP GET https://api.mythril.ai/v1/version
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 v1.0.20
+```
+
+Get the OpenAPI specification
+-------------------------------------
+
+```console
+$ ./get-openapi-spec.sh
+Issuing HTTP GET https://api.mythril.ai/v1/openapi.yaml
+curl completed sucessfully. Output follows...
+HTTP/1.1 200 OK
+-----------------------------------
+openapi: 3.0.1
+servers:
+  - url: 'https://api.mythril.ai/v1'
+...
 ```

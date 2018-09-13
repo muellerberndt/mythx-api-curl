@@ -1,6 +1,11 @@
 #!/bin/bash
 # Run an analysis
 
+HELP="usage: $0 [EVM_BYTECODE]
+  submit EVM bytecode for analysis. Either pass the bytecode as a parameter
+or set environment variable EVM_BYTECODE.
+"
+
 cd $(dirname ${BASH_SOURCE[0]})
 
 # Set up API KEY
