@@ -1,8 +1,21 @@
 #!/bin/bash
 # list analysis results
 
-HELP="usage: $0 [dateFrom-string]
+HELP="usage: $0 queryparams
   Get results from past analyses.
+
+queryparams can include offset, dateFrom, and dateTo parameters:
+
+offset - integer pagenation offset, number of records to skip
+dateFrom - A millisecond integer or valid date string that indicates
+           the earliest time to report from
+dateTo - A millisecond integer or valid date string that indicates
+           the most recent time from which reporting should stop after
+
+Examples:
+
+$0 # List all reports
+$0 'dateFrom=2018-09-014T14&dateTo=2018-09-15'
 "
 
 cd $(dirname ${BASH_SOURCE[0]})
@@ -11,15 +24,13 @@ cd $(dirname ${BASH_SOURCE[0]})
 . ./common.sh
 
 if (( $# >= 1 )) ; then
-    dateFrom="\"dateFrom\": \"$1\","
-    dateFrom_msg=" and dateFrom"
+    query_params="?$1"
 else
-    dateFrom=""
-    dateFrom_msg=""
+    query_params=""
 fi
 
 # Run the command for the analysis
-prefix="GET https://api.mythril.ai/v1/analyses"
+prefix="GET https://api.mythril.ai/v1/analyses$query_params"
 echo "Issuing HTTP $prefix
   (with MYTHRIL_API_KEY${dateFom_msg})
 "
