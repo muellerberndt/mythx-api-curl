@@ -1,7 +1,7 @@
 Introduction
 ---------------
 
-Here are some shell scripts, that you can use to work with the [mythril-api](https://mythril.ai/) (in private alpha right now).
+Here are some shell scripts, that you can use to work with the [Mythril Platform API](https://mythril.ai/) (in private alpha right now).
 
 First set `MYTHRIL_API` to your API key. For example:
 
