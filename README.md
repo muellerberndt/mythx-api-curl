@@ -24,11 +24,10 @@ To run these you need:
 * [curl](https://curl.haxx.se/download.html) to make the HTTPS requests, and
 * [jq](https://stedolan.github.io/jq/download/) to make the JSON output prettier
 
-Most OS's have these available. Run `./prerequisites`
+Most OS's have these available. Run `./prerequisites.sh` to double check though.
 
-After ensuring you
-
-First set `MYTHRIL_API` to your API key. For example:
+After ensuring you have the prerquistes programs, set `MYTHRIL_API` to
+your API key. For example:
 
 ```console
 $ export MYTHRIL_API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
