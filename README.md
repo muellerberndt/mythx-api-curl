@@ -1,7 +1,32 @@
-Introduction
----------------
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [Introduction](#introduction)
+- [Setup](#setup)
+- [Using](#using)
+    - [To submit a job for use `analyses.sh` for analysis:](#to-submit-a-job-for-use-analysessh-for-analysis)
+    - [To job status of a job run (UUID)](#to-job-status-of-a-job-run-uuid)
+    - [To see the results of status:](#to-see-the-results-of-status)
+    - [Get the API version number](#get-the-api-version-number)
+    - [Get the OpenAPI specification](#get-the-openapi-specification)
+
+<!-- markdown-toc end -->
+
+# Introduction
 
 Here are some shell scripts, that you can use to work with the [Mythril Platform API](https://mythril.ai/) (in private alpha right now).
+
+# Setup
+
+To run these you need:
+
+* [bash](https://www.gnu.org/software/bash/),
+* [curl](https://curl.haxx.se/download.html) to make the HTTPS requests, and
+* [jq](https://stedolan.github.io/jq/download/) to make the JSON output prettier
+
+Most OS's have these available. Run `./prerequisites`
+
+After ensuring you
 
 First set `MYTHRIL_API` to your API key. For example:
 
@@ -9,7 +34,9 @@ First set `MYTHRIL_API` to your API key. For example:
 $ export MYTHRIL_API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Once that's done you can:
+# Using
+
+Once you are set up, you can:
 
 * Submit a contract for analysis, creating a job run with a UUID
 * See the status of job using the UUID of a previously submitted analysis
@@ -35,8 +62,8 @@ or
 	$ ./analyses.sh $(cat /tmp/bytecode-file.evm)
 ```
 
-To job status of a job run (UUID)
-------------------------------------------
+## To job status of a job run (UUID)
+
 
 ```console
 $ ./analyses-status.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
@@ -48,8 +75,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-To see the results of status:
-------------------------------------
+## To see the results of status:
 
 ```console
 $ ./analyses-results.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
@@ -78,8 +104,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-Get the API version number
----------------------------------
+## Get the API version number
 
 ```console
 $ ./api-version.sh
@@ -89,8 +114,7 @@ HTTP/1.1 200 OK
 v1.0.20
 ```
 
-Get the OpenAPI specification
--------------------------------------
+## Get the OpenAPI specification
 
 ```console
 $ ./get-openapi-spec.sh
