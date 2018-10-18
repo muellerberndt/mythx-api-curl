@@ -9,6 +9,10 @@ if [[ -z $MYTHRIL_API_KEY ]] ; then
     exit 1
 fi
 
+# Staging server is at:
+# https://staging.api.mythril.ai:3100
+MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythril.ai}
+
 stdout=/tmp/curljs.out$$
 stderr=/tmp/curljs.err$$
 

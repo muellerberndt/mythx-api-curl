@@ -8,7 +8,7 @@ cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh
 
-prefix="GET https://api.mythril.ai/v1/openapi.yaml"
+prefix="GET ${MYTHRIL_API_URL}/v1/openapi.yaml"
 echo "Issuing HTTP $prefix"
 
 curl -i -X $prefix >$stdout 2>$stderr

@@ -30,14 +30,14 @@ else
 fi
 
 # Run the command for the analysis
-prefix="GET https://api.mythril.ai/v1/analyses$query_params"
+prefix="GET ${MYTHRIL_API_URL}/v1/analyses$query_params"
 echo "Issuing HTTP $prefix
   (with MYTHRIL_API_KEY${dateFom_msg})
 "
 curl -i -X $prefix \
-  -H "Authorization: Bearer $MYTHRIL_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -d "{$dateFrom}" >$stdout 2>$stderr
+  --header "Authorization: Bearer $MYTHRIL_API_KEY" \
+  --header 'Content-Type: application/json' \
+  --data-ascii "{$dateFrom}" >$stdout 2>$stderr
 rc=$?
 process_outputs $rc
 exit $rc

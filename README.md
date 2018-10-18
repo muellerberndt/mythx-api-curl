@@ -14,7 +14,7 @@
 
 # Introduction
 
-Here are some shell scripts, that you can use to work with the [Mythril Platform API](https://mythril.ai/) (in private alpha right now).
+Here are some shell scripts, that you can use to work with the [Mythril Platform](https://mythril.ai/) (in private alpha right now).
 
 # Setup
 

@@ -19,7 +19,7 @@ if [[ -z $EVM_BYTECODE ]] ; then
 fi
 
 # Run the command for the analysis
-prefix="POST https://api.mythril.ai/v1/analyses"
+prefix="POST ${MYTHRIL_API_URL}/v1/analyses"
 echo "Issuing HTTP $prefix
   (with MYTHRIL_API_KEY and EVM bytecode)
 "
