@@ -17,8 +17,11 @@ if [[ -z $UUID ]] ; then
     exit 1
 fi
 
-curl -X GET \
-  https://api.mythril.ai/v1/analyses/${UUID}/issues \
+prefix="GET ${MYTHRIL_API_URL}/v1/analyses/${UUID}/issues"
+echo "Issuing HTTP $prefix
+  (with MYTHRIL_API_KEY)
+"
+curl -X $prefix \
   -H "Authorization: Bearer $MYTHRIL_API_KEY"  >$stdout 2>$stderr
 rc=$?
 process_outputs $rc
