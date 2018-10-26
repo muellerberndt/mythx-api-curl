@@ -31,7 +31,7 @@ your API key. For example:
 
 ```console
 $ export MYTHRIL_API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-$ export MYTHRIL_API_URL='http://api.mythril.ai'
+$ export MYTHRIL_API_URL='https://api.mythril.ai'
 $ export EMAIL=you@example.com
 ```
 
