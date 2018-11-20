@@ -9,8 +9,8 @@ queryparams can include offset, dateFrom, and dateTo parameters:
 offset - integer pagenation offset, number of records to skip
 dateFrom - A millisecond integer or valid date string that indicates
            the earliest time to report from
-dateTo - A millisecond integer or valid date string that indicates
-           the most recent time from which reporting should stop after
+dateTo - A millisecond integer or valid ISO 8601 Date string that indicates
+         the most recent time from which reporting should stop after
 
 Examples:
 
