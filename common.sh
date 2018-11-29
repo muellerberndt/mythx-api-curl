@@ -4,8 +4,8 @@ if [[ "$1" =~ ^('--help'|'-h') ]] ; then
     exit 100
 fi
 
-if [[ -z $MYTHRIL_API_KEY ]] ; then
-    echo >&2 "You need to set MYTHRIL_API_KEY before using this script"
+if [[ -z $MYTHRIL_ACCESS_TOKEN ]] ; then
+    echo >&2 "source login to set MYTHRIL_ACCESS_TOKEN before using this script"
     exit 1
 fi
 

@@ -32,10 +32,10 @@ fi
 # Run the command for the analysis
 prefix="GET ${MYTHRIL_API_URL}/v1/analyses$query_params"
 echo "Issuing HTTP $prefix
-  (with MYTHRIL_API_KEY${dateFom_msg})
+  (with MYTHRIL_ACCESS_TOKEN ${dateFom_msg})
 "
 curl -i -X $prefix \
-  --header "Authorization: Bearer $MYTHRIL_API_KEY" \
+  --header "Authorization: Bearer $MYTHRIL_ACCESS_TOKEN" \
   --header 'Content-Type: application/json' \
   --data-ascii "{$dateFrom}" >$stdout 2>$stderr
 rc=$?

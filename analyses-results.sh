@@ -19,10 +19,10 @@ fi
 
 prefix="GET ${MYTHRIL_API_URL}/v1/analyses/${UUID}/issues"
 echo "Issuing HTTP $prefix
-  (with MYTHRIL_API_KEY)
+  (with MYTHRIL_ACCESS_TOKEN)
 "
 curl -X $prefix \
-  -H "Authorization: Bearer $MYTHRIL_API_KEY"  >$stdout 2>$stderr
+  -H "Authorization: Bearer $MYTHRIL_ACCESS_TOKEN"  >$stdout 2>$stderr
 rc=$?
 process_outputs $rc
 exit $rc
