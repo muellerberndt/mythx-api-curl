@@ -4,10 +4,14 @@ if [[ "$1" =~ ^('--help'|'-h') ]] ; then
     exit 100
 fi
 
-if [[ -z $MYTHRIL_ACCESS_TOKEN ]] ; then
-    echo >&2 "source login to set MYTHRIL_ACCESS_TOKEN before using this script"
-    exit 1
+if [[ -z $MYTHRIL_API_KEY ]] ; then
+    if [[ -z $MYTHRIL_ACCESS_TOKEN ]] ; then
+	echo >&2 "Either set MYTHRIL_API_KEY or source login to set MYTHRIL_ACCESS_TOKEN before using this script"
+	exit 1
+    fi
 fi
+
+
 
 # Staging server is at:
 # https://staging.api.mythril.ai:3100

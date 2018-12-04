@@ -7,7 +7,7 @@ HELP="usage: $0 *json-file*
 
 cd $(dirname ${BASH_SOURCE[0]})
 
-# Set up API KEY
+# Set up authentication
 . ./common.sh
 
 if(( $# != 1 )); then
@@ -21,16 +21,25 @@ if [[ ! -f "$json_path" ]] ; then
     exit 1
 fi
 
-
-# Run the command for the analysis
 prefix="POST ${MYTHRIL_API_URL}/v1/analyses"
-echo "Issuing HTTP $prefix
+if [[ -n $MYTHRIL_ACCESS_TOKEN ]] ; then
+    # Run the command for the analysis
+    echo "Issuing HTTP $prefix
   (with MYTHRIL_ACCESS_TOKEN on file $json_path)
 "
-curl -i -X $prefix \
-  -H "Authorization: Bearer $MYTHRIL_ACCESS_TOKEN" \
-  -H 'Content-Type: application/json' \
-  -d "$(cat $json_path)" >$stdout 2>$stderr
+    curl -i -X $prefix \
+	 -H "Authorization: Bearer $MYTHRIL_ACCESS_TOKEN" \
+	 -H 'Content-Type: application/json' \
+	 -d "$(cat $json_path)" >$stdout 2>$stderr
+else
+    echo "Issuing HTTP $prefix
+  (with MYTHRIL_API_KEY on file $json_path)
+"
+    curl -i -X $prefix \
+	 -H "Authorization: Bearer $MYTHRIL_API_KEY" \
+	 -H 'Content-Type: application/json' \
+	 -d "$(cat $json_path)" >$stdout 2>$stderr
+fi
 rc=$?
 process_outputs $rc
 exit $rc
