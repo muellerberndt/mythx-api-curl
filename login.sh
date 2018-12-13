@@ -36,6 +36,8 @@ MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythril.ai}
 
 stdout=/tmp/curljs.out$$
 stderr=/tmp/curljs.err$$
+
+MYTHRIL_LOGIN=1
 . ./common.sh
 
 eval $(node ./login.js)
