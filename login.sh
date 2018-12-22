@@ -31,8 +31,8 @@ if [[ -z $MYTHRIL_PASSWORD ]] ; then
 fi
 
 # Staging server is at:
-# https://staging.api.mythril.ai:3100
-MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythril.ai}
+# https://staging.mythx.io
+MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythx.io}
 
 stdout=/tmp/curljs.out$$
 stderr=/tmp/curljs.err$$
