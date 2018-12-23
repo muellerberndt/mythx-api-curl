@@ -18,20 +18,11 @@ if [[ -z $UUID ]] ; then
 fi
 
 prefix="GET ${MYTHRIL_API_URL}/v1/analyses/$UUID"
-if [[ -n $MYTHRIL_ACCESS_TOKEN ]] ; then
-    echo "Issuing HTTP $prefix
-  (with MYTHRIL_ACCESS_TOKEN)"
+echo "Issuing HTTP $prefix
+  (with ${WHAT})"
 
-    curl -i -X $prefix \
-	 -H "Authorization: Bearer $MYTHRIL_ACESS_TOKEN"  >$stdout 2>$stderr
-else
-    echo "Issuing HTTP $prefix
-  (with MYTHRIL_API_KEY)"
-
-    curl -i -X $prefix \
-	 -H "Authorization: Bearer $MYTHRIL_API_KEY"  >$stdout 2>$stderr
-
-fi
+curl -i -X $prefix \
+     -H "Authorization: Bearer $BEARER"  >$stdout 2>$stderr
 rc=$?
 process_outputs $rc
 exit $rc

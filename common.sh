@@ -11,6 +11,13 @@ if [[ -z $MYTHRIL_API_KEY ]] ; then
     fi
 fi
 
+if [[ -n $MYTHRIL_ACCESS_TOKEN ]] ; then
+    WHAT=MYTHRIL_ACCESS_TOKEN
+    BEARER="$MYTHRIL_ACCESS_TOKEN"
+else
+    WHAT=MYTHRIL_API_KEY
+    BEARER="$MYTHRIL_API_KEY"
+fi
 
 
 # Staging server is at:
