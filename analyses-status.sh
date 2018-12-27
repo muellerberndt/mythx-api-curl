@@ -1,9 +1,15 @@
 #!/bin/bash
 # Get the status of a prior run
 
-HELP="usage: $0 UUID
-  Get the status of a prior '/analyses' POST
-"
+usage() {
+    cat <<EOF
+Get the status of a prior '/analyses' POST
+
+usage: $0 UUID
+
+EOF
+    }
+
 cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh
@@ -14,6 +20,7 @@ fi
 
 if [[ -z $UUID ]] ; then
     echo >&2 "You need to either pass a UUID of a previous submitted analysis"
+    usage
     exit 1
 fi
 
