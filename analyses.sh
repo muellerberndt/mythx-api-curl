@@ -11,6 +11,8 @@ EOF
 
 cd $(dirname ${BASH_SOURCE[0]})
 
+set -e
+
 # Set up authentication
 . ./common.sh
 
@@ -26,22 +28,22 @@ if [[ ! -f "$json_path" ]] ; then
     exit 1
 fi
 
-prefix="POST ${MYTHRIL_API_URL}/v1/analyses"
-if [[ -n $MYTHRIL_ACCESS_TOKEN ]] ; then
+prefix="POST ${MYTHX_API_URL}/v1/analyses"
+if [[ -n $MYTHX_ACCESS_TOKEN ]] ; then
     # Run the command for the analysis
     echo "Issuing HTTP $prefix
-  (with MYTHRIL_ACCESS_TOKEN on file $json_path)
+  (with MYTHX_ACCESS_TOKEN on file $json_path)
 "
     curl -i -X $prefix \
-	 -H "Authorization: Bearer $MYTHRIL_ACCESS_TOKEN" \
+	 -H "Authorization: Bearer $MYTHX_ACCESS_TOKEN" \
 	 -H 'Content-Type: application/json' \
 	 -d "$(cat $json_path)" >$stdout 2>$stderr
 else
     echo "Issuing HTTP $prefix
-  (with MYTHRIL_API_KEY on file $json_path)
+  (with MYTHX_API_KEY on file $json_path)
 "
     curl -i -X $prefix \
-	 -H "Authorization: Bearer $MYTHRIL_API_KEY" \
+	 -H "Authorization: Bearer $MYTHX_API_KEY" \
 	 -H 'Content-Type: application/json' \
 	 -d "$(cat $json_path)" >$stdout 2>$stderr
 fi

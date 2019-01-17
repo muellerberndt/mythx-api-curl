@@ -24,7 +24,7 @@ if [[ -z $UUID ]] ; then
     exit 1
 fi
 
-prefix="GET ${MYTHRIL_API_URL}/v1/analyses/$UUID"
+prefix="GET ${MYTHX_API_URL}/v1/analyses/$UUID"
 echo "Issuing HTTP $prefix
   (with ${WHAT})"
 

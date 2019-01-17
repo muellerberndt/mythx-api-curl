@@ -4,25 +4,25 @@ if [[ "$1" =~ ^('--help'|'-h') ]] ; then
     exit 100
 fi
 
-if [[ -z $MYTHRIL_API_KEY ]] ; then
-    if [[ -z $MYTHRIL_ACCESS_TOKEN ]] && [[ -z $MYTHRIL_LOGIN ]] ; then
-	echo >&2 "Either set MYTHRIL_API_KEY or source login to set MYTHRIL_ACCESS_TOKEN before using this script"
+if [[ -z $MYTHX_API_KEY ]] ; then
+    if [[ -z $MYTHX_ACCESS_TOKEN ]] && [[ -z $MYTHX_LOGIN ]] ; then
+	echo >&2 "Either set MYTHX_API_KEY or source login to set MYTHX_ACCESS_TOKEN before using this script"
 	exit 1
     fi
 fi
 
-if [[ -n $MYTHRIL_ACCESS_TOKEN ]] ; then
-    WHAT=MYTHRIL_ACCESS_TOKEN
-    BEARER="$MYTHRIL_ACCESS_TOKEN"
+if [[ -n $MYTHX_ACCESS_TOKEN ]] ; then
+    WHAT=MYTHX_ACCESS_TOKEN
+    BEARER="$MYTHX_ACCESS_TOKEN"
 else
-    WHAT=MYTHRIL_API_KEY
-    BEARER="$MYTHRIL_API_KEY"
+    WHAT=MYTHX_API_KEY
+    BEARER="$MYTHX_API_KEY"
 fi
 
 
 # Staging server is at:
 # https://staging.mythx.io
-MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythx.io}
+MYTHX_API_URL=${MYTHX_API_URL:-https://api.mythx.io}
 
 stdout=/tmp/curljs.out$$
 stderr=/tmp/curljs.err$$

@@ -8,9 +8,9 @@ function usage() {
 
 Get a login session
 
-Set environment MYTHRIL_PASSWORD and MYTHRIL_ETH_ADDRESS before using.
+Set environment MYTHX_PASSWORD and MYTHX_ETH_ADDRESS before using.
 When successful it will print out values for
-MYTHRIL_ACCESS_TOKEN and MYTHRIL_REFRESH_TOKEN suitable for
+MYTHX_ACCESS_TOKEN and MYTHX_REFRESH_TOKEN suitable for
 environment sourcing.
 `)
     process.exit(1);
@@ -22,20 +22,20 @@ if (argLen === 3 &&
     usage();
 }
 
-const apiUrl = process.env['MYTHRIL_API_URL'] || 'https://api.mythril.ai';
+const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythril.ai';
 
-if (!process.env.MYTHRIL_ETH_ADDRESS && !process.env.EMAIL) {
-    console.log('Please set either environment variable MYTHRIL_ETH_ADDRESS ' +
+if (!process.env.MYTHX_ETH_ADDRESS && !process.env.EMAIL) {
+    console.log('Please set either environment variable MYTHX_ETH_ADDRESS ' +
 		'or EMAIL')
     process.exit(2);
 }
-if (!process.env.MYTHRIL_PASSWORD) {
-    console.log('Please set environment variable MYTHRIL_PASSWORD');
+if (!process.env.MYTHX_PASSWORD) {
+    console.log('Please set environment variable MYTHX_PASSWORD');
     process.exit(3);
 }
 
-const password = process.env.MYTHRIL_PASSWORD;
-const ethAddress = process.env.MYTHRIL_ETH_ADDRESS;
+const password = process.env.MYTHX_PASSWORD;
+const ethAddress = process.env.MYTHX_ETH_ADDRESS;
 
 const options = {
     form: {
@@ -75,6 +75,6 @@ request.post(url, options, (error, res, body) => {
 	process.exit(8);
     };
 
-    console.log(`export MYTHRIL_ACCESS_TOKEN=${body.access}`);
-    console.log(`export MYTHRIL_REFRESH_TOKEN=${body.refresh}`);
+    console.log(`export MYTHX_ACCESS_TOKEN=${body.access}`);
+    console.log(`export MYTHX_REFRESH_TOKEN=${body.refresh}`);
 });

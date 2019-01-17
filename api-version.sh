@@ -8,7 +8,7 @@ cd $(dirname ${BASH_SOURCE[0]})
 
 . ./common.sh
 
-prefix="GET ${MYTHRIL_API_URL}/v1/version"
+prefix="GET ${MYTHX_API_URL}/v1/version"
 echo "Issuing HTTP $prefix"
 
 curl -i -X $prefix >$stdout 2>$stderr

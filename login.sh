@@ -20,31 +20,31 @@ cd $script_dir
 full_script_dir=$(pwd)
 echo $full_script_dir
 
-if [[ -z $MYTHRIL_ETH_ADDRESS ]] ; then
-    echo >&2 "You need to set MYTHRIL_ETH_ADDRESS before using this script"
+if [[ -z $MYTHX_ETH_ADDRESS ]] ; then
+    echo >&2 "You need to set MYTHX_ETH_ADDRESS before using this script"
     return 2
 fi
 
-if [[ -z $MYTHRIL_PASSWORD ]] ; then
-    echo >&2 "You need to set MYTHRIL_PASSWORD before using this script"
+if [[ -z $MYTHX_PASSWORD ]] ; then
+    echo >&2 "You need to set MYTHX_PASSWORD before using this script"
     return 3
 fi
 
 # Staging server is at:
 # https://staging.mythx.io
-MYTHRIL_API_URL=${MYTHRIL_API_URL:-https://api.mythx.io}
+MYTHX_API_URL=${MYTHX_API_URL:-https://api.mythx.io}
 
 stdout=/tmp/curljs.out$$
 stderr=/tmp/curljs.err$$
 
-MYTHRIL_LOGIN=1
+MYTHX_LOGIN=1
 . ./common.sh
 
 eval $(node ./login.js)
 rc=$?
 if (( $rc == 0 )) ; then
     echo "Successfully logged into MythX"
-    echo MYTHRIL_ACCESS_TOKEN and MYTHRIL_REFRESH_TOKEN set
+    echo MYTHX_ACCESS_TOKEN and MYTHX_REFRESH_TOKEN set
     return
 fi
 return $rc

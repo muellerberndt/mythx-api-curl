@@ -30,7 +30,7 @@ else
 fi
 
 # Run the command for the analysis
-prefix="GET ${MYTHRIL_API_URL}/v1/analyses$query_params"
+prefix="GET ${MYTHX_API_URL}/v1/analyses$query_params"
 
 echo "Issuing HTTP $prefix
   (with $WHAT ${dateFom_msg})
