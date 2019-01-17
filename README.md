@@ -2,7 +2,7 @@
 **Table of Contents**
 
 - [Introduction](#introduction)
-- [Setup](#setup)
+- [Installation](#installation)
 - [Using](#using)
     - [To submit a job for use `analyses.sh` for analysis:](#to-submit-a-job-for-use-analysessh-for-analysis)
     - [To job status of a job run (UUID)](#to-job-status-of-a-job-run-uuid)
@@ -14,11 +14,22 @@
 
 # Introduction
 
-Here are some shell scripts, that you can use to work with the [Mythril Platform](https://mythril.ai/) (in private alpha right now).
+These shell scripts demonstrate how to use to the [MythX
+API](https://staging.api.mythx.io/v1/openapi/) at the most basic level using
+[curl](https://curl.haxx.se/download.html).  In using these scripts
+you will see the HTTP requests that get sent along with JSON output
+returned as a result of each request.
 
-# Setup
+This may be useful for developers writing a programming language
+interfaces to MythX, or are writing a MythX service and want the most
+fine-grained control over what the API has to offer. It may be useful
+also in experimenting with MythX at the API level. Note however that
+some programming languages like JavaScript there is already a library
+that can simplify interaction with MythX.
 
-To run these you need:
+# Installation
+
+To run the shell script here, you need a couple of command-line utility programs:
 
 * [bash](https://www.gnu.org/software/bash/),
 * [curl](https://curl.haxx.se/download.html) to make the HTTPS requests, and
@@ -26,20 +37,22 @@ To run these you need:
 
 Most OS's have these available. Run `./prerequisites.sh` to double check though.
 
-After ensuring you have the prerquistes programs, set `MYTHRIL_API` to
-your API key. For example:
+After ensuring you have the prerequistes programs, set
+`MYTHRIL_PASSWORD` to and one of `EMAIL` or `MYTHRIL_ETH_ADDRESS` to
+values that have been registered. For example:
 
 ```console
-$ export MYTHRIL_API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-$ export MYTHRIL_API_URL='https://api.mythril.ai'
-$ export EMAIL=you@example.com
+$ export MYTHRIL_PASSWORD=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+$ # Only one of two below is needed:
+$ export EMAIL=me@example.com
+$ export MYTHRIL_ETH_ADDRESS=0x.............
 ```
 
 Above `MYTHRIL_API_URL` is optional and the default value is given above.
 We have however a number of API servers. If you are using one or using
 your own private version, set the URL host accordiatingly.
 
-# Using
+# Examples
 
 Once you are set up, you can:
 
@@ -50,8 +63,7 @@ Once you are set up, you can:
 * Get the current versions of Mythril API and its core sub-modules
 * Get the OpenAPI specification
 
-To submit a job for use `analyses.sh` for analysis:
----------------------------------------------------------------
+## To submit a job for use `analyses.sh` for analysis:
 
 ```console
 $ ./analyses.sh sample-json/PublicArray.js
@@ -133,3 +145,8 @@ servers:
   - url: 'https://api.mythril.ai/v1'
 ...
 ```
+
+# See also
+
+* [MythX API spec](https://staging.api.mythx.io/v1/openapi/)
+* [armlet](https://npmjs.org/armlet) A Javascript Wrapper around MythX
