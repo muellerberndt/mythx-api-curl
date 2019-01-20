@@ -27,7 +27,7 @@ also in experimenting with MythX at the API level. Note however that
 some programming languages like JavaScript there is already a library
 that can simplify interaction with MythX.
 
-# Installation
+# Requirements
 
 To run the shell script here, you need a couple of command-line utility programs:
 
@@ -42,15 +42,28 @@ After ensuring you have the prerequistes programs, set
 values that have been registered. For example:
 
 ```console
-$ export MYTHRIL_PASSWORD=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+$ export MYTHX_PASSWORD=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 $ # Only one of two below is needed:
 $ export EMAIL=me@example.com
-$ export MYTHRIL_ETH_ADDRESS=0x.............
+$ export MYTHX_ETH_ADDRESS=0x.............
 ```
 
-Above `MYTHRIL_API_URL` is optional and the default value is given above.
+Above `MYTHX_API_URL` is optional and the default value is given above.
 We have however a number of API servers. If you are using one or using
 your own private version, set the URL host accordiatingly.
+
+After the setting the above environment variables, you need to get a
+`MYTHX_ACCESS_TOKEN` environment variable created. To do that run:
+
+.. code-block:: console
+
+   $ . ./login.sh
+   Successfully logged into MythX
+
+The scripts below will use the environment variable `MYTHX_ACCESS_TOKEN`. At some point this
+access token will time out, and running commands will return a HTTP 401 error.
+
+When that happens, then just run `. ./login.sh` again.
 
 # Examples
 
