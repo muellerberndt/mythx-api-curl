@@ -55,10 +55,10 @@ your own private version, set the URL host accordiatingly.
 After the setting the above environment variables, you need to get a
 `MYTHX_ACCESS_TOKEN` environment variable created. To do that run:
 
-.. code-block:: console
-
+```
    $ . ./login.sh
    Successfully logged into MythX
+```
 
 The scripts below will use the environment variable `MYTHX_ACCESS_TOKEN`. At some point this
 access token will time out, and running commands will return a HTTP 401 error.
