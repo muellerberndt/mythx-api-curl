@@ -5,7 +5,6 @@ if [[ $0 == ${BASH_SOURCE[0]} ]] ; then
     exit 1
 fi
 
-echo ${BASH_SOURCE[0]}
 HELP="usage: . ${BASH_SOURCE[0]}
   Login to MythX and sets a session key as an environment variable
 "
@@ -18,7 +17,6 @@ fi
 script_dir=$(dirname ${BASH_SOURCE[0]})
 cd $script_dir
 full_script_dir=$(pwd)
-echo $full_script_dir
 
 if [[ -z $MYTHX_ETH_ADDRESS ]] ; then
     echo >&2 "You need to set MYTHX_ETH_ADDRESS before using this script"
