@@ -56,8 +56,8 @@ After the setting the above environment variables, you need to get a
 `MYTHX_ACCESS_TOKEN` environment variable created. To do that run:
 
 ```
-   $ . ./login.sh
-   Successfully logged into MythX
+$ . ./login.sh
+Successfully logged into MythX
 ```
 
 The scripts below will use the environment variable `MYTHX_ACCESS_TOKEN`. At some point this
