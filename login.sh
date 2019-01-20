@@ -42,7 +42,7 @@ eval $(node ./login.js)
 rc=$?
 if (( $rc == 0 )) ; then
     echo "Successfully logged into MythX"
-    echo MYTHX_ACCESS_TOKEN and MYTHX_REFRESH_TOKEN set
+    echo MYTHX_ACCESS_TOKEN set
     return
 fi
 return $rc
