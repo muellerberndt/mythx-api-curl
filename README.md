@@ -142,7 +142,7 @@ $ ./api-version.sh
 Issuing HTTP GET https://api.mythril.ai/v1/version
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
-v1.0.20
+{"api":"v1.3.1","maru":"0.3.2","mythril":"0.19.11"}
 ```
 
 ## Get the OpenAPI specification
