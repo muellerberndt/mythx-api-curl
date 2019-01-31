@@ -38,7 +38,7 @@ To run the shell script here, you need a couple of command-line utility programs
 Most OS's have these available. Run `./prerequisites.sh` to double check though.
 
 After ensuring you have the prerequistes programs, set
-`MYTHRIL_PASSWORD` to and one of `EMAIL` or `MYTHRIL_ETH_ADDRESS` to
+`MYTHX_PASSWORD` to and one of `EMAIL` or `MYTHX_ETH_ADDRESS` to
 values that have been registered. For example:
 
 ```console
