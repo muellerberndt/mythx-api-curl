@@ -38,7 +38,7 @@ To run the shell script here, you need a couple of command-line utility programs
 Most OS's have these available. Run `./prerequisites.sh` to double check though.
 
 After ensuring you have the prerequistes programs, set
-`MYTHRIL_PASSWORD` to and one of `EMAIL` or `MYTHRIL_ETH_ADDRESS` to
+`MYTHX_PASSWORD` to and one of `EMAIL` or `MYTHX_ETH_ADDRESS` to
 values that have been registered. For example:
 
 ```console
@@ -80,7 +80,7 @@ Once you are set up, you can:
 
 ```console
 $ ./analyses.sh sample-json/PublicArray.js
-Issuing HTTP POST http://api.mythril.ai/v1/analyses
+Issuing HTTP POST http://api.mythx.io/v1/analyses
   (with MYTHRIL_API_KEY and EVM bytecode)
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
@@ -95,7 +95,7 @@ HTTP/1.1 200 OK
 
 ```console
 $ ./analyses-status.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
-Issuing HTTP GET http://api.mythril.ai/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770
+Issuing HTTP GET http://api.mythx.io/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770
   (with MYTHRIL_API_KEY)
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
@@ -109,7 +109,7 @@ HTTP/1.1 200 OK
 
 ```console
 $ ./analyses-results.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
-Issuing HTTP GET http://api.mythril.ai/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770/issues
+Issuing HTTP GET http://api.mythrx.io/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770/issues
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 [
@@ -139,23 +139,23 @@ HTTP/1.1 200 OK
 
 ```console
 $ ./api-version.sh
-Issuing HTTP GET https://api.mythril.ai/v1/version
+Issuing HTTP GET https://api.mythx.io/v1/version
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
-v1.0.20
+{"api":"v1.3.1","maru":"0.3.2","mythril":"0.19.11"}
 ```
 
 ## Get the OpenAPI specification
 
 ```console
 $ ./get-openapi-spec.sh
-Issuing HTTP GET https://api.mythril.ai/v1/openapi.yaml
+Issuing HTTP GET https://api.mythx.io/v1/openapi.yaml
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 -----------------------------------
 openapi: 3.0.1
 servers:
-  - url: 'https://api.mythril.ai/v1'
+  - url: 'https://api.mythx.io/v1'
 ...
 ```
 
