@@ -6,6 +6,7 @@ HELP="usage: $0
 
 cd $(dirname ${BASH_SOURCE[0]})
 
+MYTHX_LOGIN=false
 . ./common.sh
 
 prefix="GET ${MYTHX_API_URL}/v1/version"

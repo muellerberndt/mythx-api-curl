@@ -2,13 +2,15 @@
 **Table of Contents**
 
 - [Introduction](#introduction)
-- [Installation](#installation)
-- [Using](#using)
+- [Requirements](#requirements)
+- [Examples](#examples)
     - [To submit a job for use `analyses.sh` for analysis:](#to-submit-a-job-for-use-analysessh-for-analysis)
     - [To job status of a job run (UUID)](#to-job-status-of-a-job-run-uuid)
     - [To see the results of status:](#to-see-the-results-of-status)
     - [Get the API version number](#get-the-api-version-number)
+    - [Get Tool Statistics](#get-tool-statistics)
     - [Get the OpenAPI specification](#get-the-openapi-specification)
+- [See also](#see-also)
 
 <!-- markdown-toc end -->
 
@@ -141,8 +143,25 @@ $ ./api-version.sh
 Issuing HTTP GET https://api.mythx.io/v1/version
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
-{"api":"v1.3.1","maru":"0.3.2","mythril":"0.19.11"}
+{
+  "api": "v1.3.2",
+  "maru": "0.3.4",
+  "mythril": "0.20.0"
+}
 ```
+
+## Get Tool Statistics
+
+```console
+$ ./tool-stats.sh
+Issuing HTTP GET https://api.mythx.io/v1/client-tool-stats/truffle
+curl completed sucessfully. Output follows...
+HTTP/1.1 200 OK
+{
+  "numAnalyses": 20321
+}
+```
+
 
 ## Get the OpenAPI specification
 
@@ -162,3 +181,4 @@ servers:
 
 * [MythX API spec](https://staging.api.mythx.io/v1/openapi/)
 * [armlet](https://npmjs.org/armlet) A Javascript Wrapper around MythX
+* [https://docs.mythx.io](MythX Developer and User Guide)

@@ -11,6 +11,7 @@ $0 truffle # List all reports
 
 cd $(dirname ${BASH_SOURCE[0]})
 
+MYTHX_LOGIN=false
 . ./common.sh
 
 if(( $# != 1 )); then
