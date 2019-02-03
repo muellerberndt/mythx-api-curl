@@ -182,4 +182,4 @@ servers:
 
 * [MythX API spec](https://staging.api.mythx.io/v1/openapi/)
 * [armlet](https://npmjs.org/armlet) A Javascript Wrapper around MythX
-* [https://docs.mythx.io](MythX Developer and User Guide)
+* [MythX Developer and User Guide](https://docs.mythx.iob)
