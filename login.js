@@ -22,7 +22,7 @@ if (argLen === 3 &&
     usage();
 }
 
-const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythril.ai';
+const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythx.io';
 
 if (!process.env.MYTHX_ETH_ADDRESS && !process.env.EMAIL) {
     console.log('Please set either environment variable MYTHX_ETH_ADDRESS ' +
