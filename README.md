@@ -108,7 +108,7 @@ HTTP/1.1 200 OK
 
 ```console
 $ ./analyses-results.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
-Issuing HTTP GET http://api.mythrx.io/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770/issues
+Issuing HTTP GET http://api.mythx.io/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770/issues
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 [
