@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if [[ $0 == ${BASH_SOURCE[0]} ]] ; then
+me=${BASH_SOURCE[0]}
+
+if [[ $0 == $me ]] ; then
     echo "This script should be *sourced* rather than run directly through bash"
     exit 1
 fi
 
-HELP="usage: . ${BASH_SOURCE[0]}
+HELP="usage: . $me
   Login to MythX and sets a session key as an environment variable
 "
 
@@ -14,7 +16,7 @@ if [[ "$1" =~ ^('--help'|'-h') ]] ; then
     return 1
 fi
 
-script_dir=$(dirname ${BASH_SOURCE[0]})
+script_dir=$(dirname $me)
 cd $script_dir
 full_script_dir=$(pwd)
 
