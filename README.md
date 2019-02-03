@@ -75,6 +75,7 @@ Once you are set up, you can:
 * Get the results of a previously finished analysis using the UUID
 * See a list of previously submitted analyses
 * Get the current versions of Mythril API and its core sub-modules
+* Get tool usage statistics
 * Get the OpenAPI specification
 
 ## To submit a job for use `analyses.sh` for analysis:
