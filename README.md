@@ -80,7 +80,7 @@ Once you are set up, you can:
 ```console
 $ ./analyses.sh sample-json/PublicArray.js
 Issuing HTTP POST http://api.mythx.io/v1/analyses
-  (with MYTHRIL_API_KEY and EVM bytecode)
+  (with MYTHRIL_ACCESS_TOKEN and EVM bytecode)
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 {
@@ -95,7 +95,7 @@ HTTP/1.1 200 OK
 ```console
 $ ./analyses-status.sh "bf9fe267-d322-4641-aae2-a89e62f40770"
 Issuing HTTP GET http://api.mythx.io/v1/analyses/bf9fe267-d322-4641-aae2-a89e62f40770
-  (with MYTHRIL_API_KEY)
+  (with MYTHRIL_ACCESS_TOKEN)
 curl completed sucessfully. Output follows...
 HTTP/1.1 200 OK
 {
