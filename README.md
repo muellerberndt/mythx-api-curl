@@ -29,31 +29,30 @@ that can simplify interaction with MythX.
 
 # Requirements
 
-To run the shell script here, you need a couple of command-line utility programs:
+To run the MythX API shell scripts you need a couple of command-line utilities:
 
 * [bash](https://www.gnu.org/software/bash/),
 * [curl](https://curl.haxx.se/download.html) to make the HTTPS requests, and
 * [jq](https://stedolan.github.io/jq/download/) to make the JSON output prettier
 
-Most OS's have these available. Run `./prerequisites.sh` to double check though.
+Those tools are already installed on most operation systems. Run `./prerequisites.sh` to double check though.
 
-After ensuring you have the prerequistes programs, set
-`MYTHX_PASSWORD` to and one of `EMAIL` or `MYTHX_ETH_ADDRESS` to
+After installing the required dependencies, set
+`MYTHX_PASSWORD` to and `MYTHX_ETH_ADDRESS` to the
 values that have been registered. For example:
 
 ```console
-$ export MYTHX_PASSWORD=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-$ # Only one of two below is needed:
-$ export EMAIL=me@example.com
+$ export MYTHX_API_URL=https://mythx.io
+$ export MYTHX_PASSWORD=MyPassword!
 $ export MYTHX_ETH_ADDRESS=0x.............
 ```
 
-Above `MYTHX_API_URL` is optional and the default value is given above.
-We have however a number of API servers. If you are using one or using
-your own private version, set the URL host accordiatingly.
+Note that `MYTHX_API_URL` is optional and will be set to the default
+value unless specified otherwise.
 
-After the setting the above environment variables, you need to get a
-`MYTHX_ACCESS_TOKEN` environment variable created. To do that run:
+After  setting the above environment variables, you need to retrieve
+a JWT access token and store it in the `MYTHX_ACCESS_TOKEN` environment variable.
+To do that run:
 
 ```
 $ . ./login.sh
