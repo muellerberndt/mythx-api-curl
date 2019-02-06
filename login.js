@@ -24,9 +24,8 @@ if (argLen === 3 &&
 
 const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythx.io';
 
-if (!process.env.MYTHX_ETH_ADDRESS && !process.env.EMAIL) {
-    console.log('Please set either environment variable MYTHX_ETH_ADDRESS ' +
-		'or EMAIL')
+if (!process.env.MYTHX_ETH_ADDRESS) {
+    console.log('Please set either environment variable MYTHX_ETH_ADDRESS')
     process.exit(2);
 }
 if (!process.env.MYTHX_PASSWORD) {
@@ -39,7 +38,6 @@ const ethAddress = process.env.MYTHX_ETH_ADDRESS;
 
 const options = {
     form: {
-	email: null,
 	ethAddress: ethAddress,
 	password: password
     }};

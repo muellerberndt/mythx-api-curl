@@ -41,7 +41,6 @@ MYTHX_LOGIN=1
 . ./common.sh
 
 eval $(node ./login.js)
-
 # FIXME we are not handling 400 (invalid login) properly
 # getting an "invalid command" instead.
 rc=$?
