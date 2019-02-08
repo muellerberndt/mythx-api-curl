@@ -40,13 +40,16 @@ stderr=/tmp/curljs.err$$
 MYTHX_LOGIN=1
 . ./common.sh
 
-eval $(node ./login.js)
-# FIXME we are not handling 400 (invalid login) properly
-# getting an "invalid command" instead.
+cmd=$(node ./login.js)
 rc=$?
 if (( $rc == 0 )) ; then
-    echo "Successfully logged into MythX"
-    echo MYTHX_ACCESS_TOKEN set
-    return
+    eval $cmd
+    if (( $rc == 0 )) ; then
+	echo "Successfully logged into MythX"
+	echo MYTHX_ACCESS_TOKEN set
+	return
+    fi
+else
+    echo "$cmd"
 fi
 return $rc
