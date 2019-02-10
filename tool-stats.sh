@@ -24,9 +24,10 @@ tool_name=$1
 # Run the command for the analysis
 prefix="GET ${MYTHX_API_URL}/v1/client-tool-stats/${tool_name}"
 
-echo "Issuing HTTP $prefix"
-curl -i -X $prefix \
-  --header 'Content-Type: application/json' >$stdout 2>$stderr
+set -x
+curl -v $prefix \
+     --header 'Content-Type: application/json' >$stdout 2>$stderr
 rc=$?
+set +x
 process_outputs $rc
 exit $rc

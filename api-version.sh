@@ -10,10 +10,11 @@ MYTHX_LOGIN=false
 . ./common.sh
 
 prefix="GET ${MYTHX_API_URL}/v1/version"
-echo "Issuing HTTP $prefix"
 
-curl -i -X $prefix >$stdout 2>$stderr
+set -x
+curl -v $prefix >$stdout 2>$stderr
 rc=$?
+set +x
 
 process_outputs $rc 1
 exit $rc
