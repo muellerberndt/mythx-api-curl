@@ -22,12 +22,9 @@ fi
 tool_name=$1
 
 # Run the command for the analysis
-prefix="GET ${MYTHX_API_URL}/v1/client-tool-stats/${tool_name}"
-
-set -x
-curl -v $prefix \
-     --header 'Content-Type: application/json' >$stdout 2>$stderr
+cmd="curl  --header 'Content-Type: application/json' -v GET ${MYTHX_API_URL}/v1/client-tool-stats/${tool_name}"
+echo "Running: $cmd"
+$cmd >$stdout 2>$stderr
 rc=$?
-set +x
 process_outputs $rc
 exit $rc

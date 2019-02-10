@@ -9,12 +9,10 @@ cd $(dirname ${BASH_SOURCE[0]})
 MYTHX_LOGIN=false
 . ./common.sh
 
-prefix="GET ${MYTHX_API_URL}/v1/version"
-
-set -x
-curl -v $prefix >$stdout 2>$stderr
+cmd="curl -v GET ${MYTHX_API_URL}/v1/version"
+echo "Running: $cmd"
+$cmd  >$stdout 2>$stderr
 rc=$?
-set +x
 
 process_outputs $rc 1
 exit $rc

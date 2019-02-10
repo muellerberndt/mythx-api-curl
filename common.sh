@@ -6,7 +6,7 @@ fi
 
 if [[ -z $MYTHX_API_KEY ]] ; then
     if [[ -z $MYTHX_ACCESS_TOKEN ]] && [[ -z $MYTHX_LOGIN ]] ; then
-	echo >&2 "Either set MYTHX_API_KEY or source login to set MYTHX_ACCESS_TOKEN before using this script"
+	echo >&2 "Source login to set MYTHX_ACCESS_TOKEN before using this script"
 	exit 1
     fi
 fi
@@ -33,7 +33,19 @@ process_outputs() {
     typeset use_jq=${2:-1}
 
     if (( $rc == 0 )) ; then
-	echo "curl completed sucessfully. Output follows..."
+	results=$(cat $stdout)
+	case $results in
+	    '{"status":401,"error":"Not authenticated"}' )
+		echo "Not authenticated (HTTP 401)"
+		return 41
+		;;
+	    'Unauthorized' )
+		echo "Not authorized to perform this request."
+		return 41
+	esac
+
+	echo "curl completed sucessfully. See $stderr for verbose logs."
+	echo "Processed output from $stdout follows..."
 	if [[ -s $stdout ]] ; then
 	    cat $stdout | grep "^HTTP"
 	    if (( use_jq )) ; then
