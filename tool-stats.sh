@@ -11,6 +11,7 @@ $0 truffle # List all reports
 
 cd $(dirname ${BASH_SOURCE[0]})
 
+MYTHX_LOGIN=false
 . ./common.sh
 
 if(( $# != 1 )); then
@@ -21,11 +22,9 @@ fi
 tool_name=$1
 
 # Run the command for the analysis
-prefix="GET ${MYTHX_API_URL}/v1/client-tool-stats/${tool_name}"
-
-echo "Issuing HTTP $prefix"
-curl -i -X $prefix \
-  --header 'Content-Type: application/json' >$stdout 2>$stderr
+cmd="curl  --header 'Content-Type: application/json' -v GET ${MYTHX_API_URL}/v1/client-tool-stats/${tool_name}"
+echo "Running: $cmd"
+$cmd >$stdout 2>$stderr
 rc=$?
 process_outputs $rc
 exit $rc

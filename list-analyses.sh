@@ -35,7 +35,7 @@ prefix="GET ${MYTHX_API_URL}/v1/analyses$query_params"
 echo "Issuing HTTP $prefix
   (with $WHAT ${dateFom_msg})
 "
-curl -i -X $prefix \
+curl -v -X $prefix \
   --header "Authorization: Bearer $BEARER" \
   --header 'Content-Type: application/json' \
   --data-ascii "{$dateFrom}" >$stdout 2>$stderr

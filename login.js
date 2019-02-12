@@ -16,17 +16,21 @@ environment sourcing.
     process.exit(1);
 }
 
+function fatal(mess, rc) {
+    console.log(JSON.stringify(mess, null, 4));
+    process.exit(rc);
+}
+
 const argLen = process.argv.length
 if (argLen === 3 &&
     process.argv[2].match(/^[-]{0,2}h(?:elp)?$/)) {
     usage();
 }
 
-const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythril.ai';
+const apiUrl = process.env['MYTHX_API_URL'] || 'https://api.mythx.io';
 
-if (!process.env.MYTHX_ETH_ADDRESS && !process.env.EMAIL) {
-    console.log('Please set either environment variable MYTHX_ETH_ADDRESS ' +
-		'or EMAIL')
+if (!process.env.MYTHX_ETH_ADDRESS) {
+    console.log('Please set either environment variable MYTHX_ETH_ADDRESS')
     process.exit(2);
 }
 if (!process.env.MYTHX_PASSWORD) {
@@ -39,40 +43,38 @@ const ethAddress = process.env.MYTHX_ETH_ADDRESS;
 
 const options = {
     form: {
-	email: null,
 	ethAddress: ethAddress,
 	password: password
     }};
 
 const url = `${apiUrl}/${basePath}`
-debugger
 
 request.post(url, options, (error, res, body) => {
     if (error) {
-        console.log(error);
-	process.exit(4);
+        fatal(error, 4);
     }
 
     if (res.statusCode !== 200) {
-        console.log(`Invalid status code ${res.statusCode}, ${body}`);
-	process.exit(5);
+	debugger
+	try {
+            body = JSON.parse(body)
+	} catch (err) {
+	}
+        fatal(body, 5);
     }
 
     try {
         body = JSON.parse(body)
     } catch (err) {
-        console.log(`JSON parse error ${err}`);
-	process.exit(6);
+        fatal(`echo JSON parse error ${err}`, 6);
     };
 
     if (!body.refresh) {
-        console.log(`Refresh Token missing`);
-	process.exit(7);
+        fatal(`echo Refresh Token missing`, 7);
     }
 
     if (!body.access) {
-        console.log(`Access Token missing`);
-	process.exit(8);
+        fatal(`echo Access Token missing`, 8);
     };
 
     console.log(`export MYTHX_ACCESS_TOKEN=${body.access}`);
