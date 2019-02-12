@@ -17,7 +17,7 @@ set -e
 . ./common.sh
 
 if(( $# != 1 )); then
-    echo >&2 "You need to either pass a JSON file. e.g. sample-json/PublicArray.json"
+    echo >&2 "You need to either pass a JSON file. e.g. sample-json/Token.json"
     exit 1
 fi
 
